@@ -13,6 +13,13 @@ likeGlyph.forEach(function (likeGlyph) {
   likeGlyph.addEventListener('click', function () {
     mimicServerCall()
       .then(res => {
+        // When the "server" returns a success status:
+        // Change the heart to a full heart
+        // Add the .activated-heart class to make the heart appear red
+        // When a user clicks on a full heart:
+        // Change the heart back to an empty heart
+        // Remove the .activated-heart class
+        likeGlyph.classList.toggle('activated-heart')
         console.log(res);
       })
       //When the "server" returns a failure status:
@@ -31,35 +38,6 @@ likeGlyph.forEach(function (likeGlyph) {
       });
   });
 });
-
-
-
-
-
-
-
-// const likeGlyphs = document.querySelectorAll('.like-glyph');
-
-// // Add a click event listener to each "like-glyph" element
-// likeGlyphs.forEach(function (likeGlyph) {
-//   likeGlyph.addEventListener('click', function () {
-//     // Invoke mimicServerCall when a "like-glyph" element is clicked
-//     mimicServerCall()
-//       .then(function (response) {
-//         // Handle a successful response here
-//         console.log('Server response:', response);
-//         // Perform frontend actions based on the response
-//       })
-//       .catch(function (error) {
-//         // Handle an error if mimicServerCall fails
-//         console.error('Error:', error);
-//         // Perform frontend actions based on the error
-//       });
-//   });
-// });
-
-
-
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
